@@ -1,9 +1,22 @@
 {% extends "base.html" %} {%block content%}
+
+
+{%if username %}
+  <div class="alert alert-primary mx-5" role="alert">
+    <h5 class="mb-0">
+    Welcome to our shop, {{username}}
+
+    </h5>
+  </div>
+{%endif %}
+
 <h2 class="mx-5 text-primary">Homepage</h2>
 
 
 
+
 <div class="row mx-4">
+
   {%for product in products%}
   <div class="col-lg-3 my-3">
     <div class="card leila-card shadow">

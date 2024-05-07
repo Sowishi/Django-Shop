@@ -73,11 +73,18 @@
               Your Cart <i class="bi bi-cart"></i>
             </a>
             <a href="/admin" class="btn btn-warning mx-3" type="submit">
-              Admin <i class="bi bi-heart"></i>
+              Admin <i class="bi bi-shield-fill-check"></i>
             </a>
-            <button class="btn btn-secondary" type="submit">
-              Sign In <i class="bi bi-heart"></i>
-            </button>
+            {%if username%}
+            <a href="/logout" class="btn btn-secondary" type="submit">
+              Sign Out <i class="bi bi-box-arrow-in-right"></i>
+            </a>
+            {%else%}
+            <a href="/login" class="btn btn-secondary" type="submit">
+              Sign In <i class="bi bi-box-arrow-in-right"></i>
+            </a>
+
+            {%endif%}
           </form>
         </div>
       </div>
