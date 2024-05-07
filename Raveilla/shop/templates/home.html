@@ -1,0 +1,53 @@
+{% extends "base.html" %} {%block content%}
+<h2 class="mx-5 text-primary">Homepage</h2>
+
+
+
+<div class="row mx-4">
+  {%for product in products%}
+  <div class="col-lg-3 my-3">
+    <div class="card leila-card shadow">
+      <div class="wrapper" style="width: 100%; height: 250px">
+        <img
+          style="width: 100%; height: 100%; object-fit: cover"
+          src="/media/{{product.image}}"
+        />
+      </div>
+
+      <div class="card-body">
+        <h5 class="card-title">{{product.title}}</h5>
+
+        <div
+          class="wrapper"
+          style="width: 100%; height: 50px; overflow: hidden"
+        >
+          <p class="card-text" style="font-size: 11px">
+            {{product.description}}
+          </p>
+        </div>
+        <p class="card-text text-success">₱{{product.price}}</p>
+
+        <form method="POST">
+          {% csrf_token %}
+          <input type="text" value={{product.title}} name="title" hidden>
+          <input type="text" value={{product.price}} name="price" hidden>
+          <input type="text" value={{product.description}} name="description" hidden>
+          <input type="text" value={{product.image}} name="image" hidden>
+
+          <input
+            type="submit"
+            href="#"
+            class="btn btn-primary"
+            style="width: 100%"
+            value="Add to Cart"
+            >
+          
+          </input>
+        </form>
+      </div>
+    </div>
+  </div>
+  {%endfor%}
+</div>
+
+{%endblock%}
